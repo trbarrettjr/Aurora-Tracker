@@ -40,6 +40,10 @@ def main():
     if myLocation["longitude"] < 0:
         myLocation["longitude"] = int(myLocation["longitude"] + 360)
 
+    for values in data['coordinates']:
+        if values[0] == myLocation['longitude'] and values[1] == myLocation['latitude']:
+            print(values)
+
     # Latitude is {-90..90} this appears to be a true North-south coordinates
 
 
