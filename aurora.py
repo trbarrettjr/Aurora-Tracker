@@ -32,7 +32,7 @@ def main():
     # An issue with longitude it is numbered {0..359} therefore will need to research to figure out how to handle
     # West coordinates or negative coordinates.
 
-    # the data['coordinates'][0][2] is the aurora Kp index
+    # the data['coordinates'][0][2] is something! (Maybe one of the K? index's)
     # See https://www.swpc.noaa.gov/content/space-weather-glossary#k then "Kp index"
 
     # Data is in full integers, floats will not work
@@ -40,17 +40,12 @@ def main():
     if myLocation["longitude"] < 0:
         myLocation["longitude"] = int(myLocation["longitude"] + 360)
 
-    for values in data['coordinates']:
-        if values[0] == myLocation['longitude'] and values[1] == myLocation['latitude']:
-            print(values)
-
     # Latitude is {-90..90} this appears to be a true North-south coordinates
     myLocation["latitude"] = int(myLocation["latitude"] # Make these integers so that they can easily search the list of lists.
     
-    for i in data["coordinates"]:
-        if i[0] == myLocation["longitude"] and i[1] == myLocation["latitude"]:
-            print(i) # Should print a single result dispaying the found Aurora data
-
+    for values in data['coordinates']:
+        if values[0] == myLocation['longitude'] and values[1] == myLocation['latitude']:
+            print(values) # Should print a single result
 
 
 if __name__ == "__main__":
