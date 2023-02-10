@@ -45,8 +45,11 @@ def main():
             print(values)
 
     # Latitude is {-90..90} this appears to be a true North-south coordinates
-
-
+    myLocation["latitude"] = int(myLocation["latitude"] # Make these integers so that they can easily search the list of lists.
+    
+    for i in data["coordinates"]:
+        if i[0] == myLocation["longitude"] and i[1] == myLocation["latitude"]:
+            print(i) # Should print a single result dispaying the found Aurora data
 
 
 
